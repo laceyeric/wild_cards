@@ -42,11 +42,11 @@
                       <div class="col-9">
                         <!-- card code -->
                         <div class="card" style="width: 20rem; height: 28rem;" v-if="!flipped">
-                          <div class="card-body d-inline-flex justify-content-between">
+                          <div class="card-body d-inline-flex justify-content-between p-2">
                             <h5 class="card-title text-wrap">{{ activeCard.name }}</h5>
                             <h5 class="card-title text-wrap">{{ activeCard.category }}</h5>
                           </div>
-                          <div class="card-body image-centering">
+                          <div class="card-body image-centering pt-0 pb-0">
                             <!-- card face image (top half of card) -->
                             <img
                               :src="activeCard.imgFace"
@@ -55,7 +55,7 @@
                               placeholder
                             />
                           </div>
-                          <div class="card-body">
+                          <div class="card-body p-2">
                             <p class="card-text text-left text-wrap">{{ activeCard.content }}</p>
                           </div>
                         </div>
@@ -80,7 +80,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-6" v-if="editing">
+                  <div class="col-6 mt-1" v-if="editing">
                     <!-- form code -->
                     <form @submit.prevent="editCard">
                       <div class="form-group text-left">
@@ -193,11 +193,14 @@ export default {
 };
 </script>
 <style scoped>
+label {
+  /* margin-top: 0.5rem; */
+  margin-bottom: 0rem;
+}
 .full-width-modal {
   max-width: 1000px;
 }
 .image-centering {
-  align-self: center;
 }
 #card-face-img {
   border-radius: 0.85em;

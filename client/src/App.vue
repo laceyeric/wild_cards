@@ -1,34 +1,48 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-dark bg-dark">
-      <h2>
-        <router-link class="navbar-brand" :to="{name:'home'}" href="#">Wild Card</router-link>
-      </h2>
-      <div class="dropdown profile-name">
-        {{activeProfile.name}}
-        <button
-          class="btn btn-dark"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="dropdown-menu border dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" v-if="user.hasOwnProperty('email')" @click="logout">Log Out</a>
-          <a class="dropdown-item" v-else @click="login">Log In</a>
-          <a class="dropdown-item" v-if="!user.hasOwnProperty('email')" @click="register">Register</a>
-          <router-link
-            :to="{name: 'profile', params: {profileId: this.activeProfile._id}}"
-            class="dropdown-item"
-            v-if="user.hasOwnProperty('email')"
-          >Profile</router-link>
+    <div class="container-fluid toppy">
+      <div class="row">
+        <div class="col-12">
+          <nav class="navbar navbar-fixed-top navbar-dark bg-dark">
+            <h2>
+              <router-link class="navbar-brand" :to="{name:'home'}" href="#">Wild Card</router-link>
+            </h2>
+            <div class="dropdown profile-name">
+              {{activeProfile.name}}
+              <button
+                class="btn btn-dark"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div
+                class="dropdown-menu border dropdown-menu-right"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item" v-if="user.hasOwnProperty('email')" @click="logout">Log Out</a>
+                <a class="dropdown-item" v-else @click="login">Log In</a>
+                <a
+                  class="dropdown-item"
+                  v-if="!user.hasOwnProperty('email')"
+                  @click="register"
+                >Register</a>
+                <router-link
+                  :to="{name: 'profile', params: {profileId: this.activeProfile._id}}"
+                  class="dropdown-item"
+                  v-if="user.hasOwnProperty('email')"
+                >Profile</router-link>
+              </div>
+            </div>
+          </nav>
+          <span class="nav-bottom border"></span>
         </div>
       </div>
-    </nav>
-    <span class="nav-bottom border"></span>
+    </div>
+
     <router-view :key="$route.fullPath" />
   </div>
 </template>
@@ -43,7 +57,8 @@ export default {
   mounted() {
     this.$store.dispatch("getPersonalProfileByUserId", this.user._id);
     // initialize socket connection
-    this.$store.dispatch("initializeSocket")
+
+
   },
   methods: {
     async login() {
@@ -88,7 +103,7 @@ export default {
   background-image: url("./assets/felt.jpg");
   background-size: 250px;
   background-repeat: repeat;
-  height: -webkit-fill-available;
+  min-height: 100vh;
 }
 
 #nav {
@@ -130,6 +145,15 @@ a.dropdown-item {
 
 .navbar {
   background-image: url("./assets/wood_panel.jpg");
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+
+  width: 100%;
+  z-index: 10;
 }
 
 .navbar-brand {
@@ -155,5 +179,9 @@ a.dropdown-item {
   border-width: 0.2rem;
   border-color: black !important;
   filter: drop-shadow(0px 20px 20px black) !important;
+}
+.toppy {
+  min-height: 85px;
+  padding-left: 0;
 }
 </style>

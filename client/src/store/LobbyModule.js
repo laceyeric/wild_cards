@@ -41,7 +41,6 @@ export default {
     async getLobbyById({ commit, dispatch }, lobbyId) {
       try {
         let res = await api.get("lobby/" + lobbyId);
-        console.log(res.data);
         commit("setResource", { name: "lobby", data: res.data });
       } catch (error) {
         console.error(error);

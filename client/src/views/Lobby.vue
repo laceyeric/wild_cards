@@ -18,7 +18,7 @@
 
           <div class="col-12 hand-area">
             <div class="row">
-              <player-hand :zoneData="playerOneHand"></player-hand>
+              <player-hand :zoneData="(player==1) ? playerOneHand : playerTwoHand"></player-hand>
             </div>
           </div>
         </div>
@@ -59,6 +59,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getLobbyById", this.$route.params.id);
+    this.$store.dispatch("initializeSocket", this.$route.params.id);
   },
   computed: {
     lobby() {
@@ -81,8 +82,16 @@ export default {
         return this.$store.state.lobby.zones[1];
       }
     },
+    playerTwoHand() {
+      if (this.$store.state.lobby._id) {
+        return this.$store.state.lobby.zones[0];
+      }
+    },
     deck() {
       return this.lobby.deck;
+    },
+    player() {
+      return this.$store.state.player;
     }
   },
   methods: {
@@ -92,6 +101,7 @@ export default {
     },
     shuffle() {
       let deck = this.$store.state.lobby.zones.find(z => z.position == "0");
+      deck.room = this.$route.params.id;
       this.$store.dispatch("shuffle", deck);
     }
   }

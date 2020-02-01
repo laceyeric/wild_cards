@@ -99,4 +99,15 @@ export default {
   max-width: 200px;
   max-height: 300px;
 }
+.border {
+  text-shadow: 2px 2px 2px #000;
+  color: white;
+  background: linear-gradient(rgba(34, 33, 33, 0.7), rgba(0, 0, 0, 0.7));
+}
+.profile {
+  background-repeat: repeat;
+  background-size: cover;
+
+  height: 100%;
+}
 </style>

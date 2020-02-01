@@ -72,7 +72,8 @@ export default class LobbyController {
   async shuffleCards(req, res, next) {
     try {
       let data = await _lobbyService.shuffleCards(req.body);
-      socket.notifyShuffleDeck(data);
+      let newData = { cards: data, room: req.body.room }
+      socket.notifyShuffleDeck(newData);
       return res.send(data);
     } catch (error) {
       next(error);

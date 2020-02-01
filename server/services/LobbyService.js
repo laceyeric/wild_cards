@@ -113,8 +113,9 @@ class LobbyService {
       { $set: { "zones.$.cards": shuffledUpdate } },
       { new: true }
     );
-    return data.zones.find(z => z._id == update._id);
+    return shuffledUpdate;
   }
+
 }
 
 const _lobbyService = new LobbyService();

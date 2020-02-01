@@ -43,7 +43,8 @@ export default {
         let zoneChange = {
           oldZoneId: oldZone._id,
           newZoneId: this.zoneData._id,
-          cardId: card._id
+          cardId: card._id,
+          room: this.$route.params.id
         };
         this.$store.dispatch("moveCard", zoneChange);
         this.$store.dispatch("setActiveCard", {});
