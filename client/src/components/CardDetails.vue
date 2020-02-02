@@ -200,8 +200,7 @@ label {
 .full-width-modal {
   max-width: 1000px;
 }
-.image-centering {
-}
+
 #card-face-img {
   border-radius: 0.85em;
 }
