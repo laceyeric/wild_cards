@@ -23,5 +23,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card {
+  color: #2c3e50;
+}
+a {
+  text-decoration: none;
+}
 </style>
