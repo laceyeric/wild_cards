@@ -9,7 +9,7 @@
       style="width: 7.5rem; height: 10.5rem; "
       :style="(zone.position==0)?'background-image: url('+card.imgBack+');':''"
     >
-      <div class="card-body" v-if="zone.position!='0'">
+      <div class="card-body" v-if="zone.position&&zone.position!='0'">
         <img :src="card.imgFace" alt style="max-height: 4rem; max-width: 4.7rem;" />
 
         <h5 class="card-title text-wrap">{{ card.name }}</h5>

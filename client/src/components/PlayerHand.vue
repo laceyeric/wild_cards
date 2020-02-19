@@ -19,6 +19,7 @@
           v-for="(card, index) in zoneData.cards"
           :key="card._id"
           :cardId="zoneData.cards[index]"
+          :zone="zoneData"
         ></card-sticker-two>
       </div>
     </div>
