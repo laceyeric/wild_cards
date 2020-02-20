@@ -49,6 +49,6 @@ export default {
 }
 
 .active {
-  border: 3px solid red;
+  border: 3px solid rgba(255, 255, 255, 0.534);
 }
 </style>
