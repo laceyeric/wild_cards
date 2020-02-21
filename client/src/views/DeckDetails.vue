@@ -115,9 +115,7 @@ export default {
 #deck-detail-header {
   color: white;
 }
-#deck-delete {
-}
-#deck-cards {
+s #deck-cards {
   padding-bottom: 1rem;
 }
 #deck-new-card {
