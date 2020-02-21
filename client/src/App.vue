@@ -5,7 +5,7 @@
         <div class="col-12">
           <nav class="navbar navbar-fixed-top navbar-dark bg-dark">
             <h2>
-              <router-link class="navbar-brand" :to="{name:'home'}" href="#">Wild Card</router-link>
+              <router-link class="navbar-brand" :to="{name:'home'}" href="#">Wild Cards</router-link>
             </h2>
             <div class="dropdown profile-name">
               {{activeProfile.name}}
@@ -57,8 +57,6 @@ export default {
   mounted() {
     this.$store.dispatch("getPersonalProfileByUserId", this.user._id);
     // initialize socket connection
-
-
   },
   methods: {
     async login() {
@@ -181,7 +179,7 @@ a.dropdown-item {
   filter: drop-shadow(0px 20px 20px black) !important;
 }
 .toppy {
-  min-height: 85px;
+  min-height: 70px;
   padding-left: 0;
 }
 </style>

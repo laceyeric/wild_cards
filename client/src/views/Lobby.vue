@@ -117,9 +117,7 @@ export default {
 .hand-area {
   width: 100%;
   height: 30vh;
-
   border-top: solid 10px black;
-
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../assets/felt.jpg");
   background-size: 250px;
@@ -137,10 +135,13 @@ export default {
   margin-top: 1.5rem;
 }
 .play-menu {
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f5eaea;
   height: 93.1vh;
   display: flex;
   flex-direction: column;
+  border-top: solid 10px black !important;
+  border-left: solid 10px black !important;
 }
 .btn {
   margin-top: 1rem;
